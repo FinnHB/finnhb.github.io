@@ -18,22 +18,43 @@ date_format = "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
+
+
+[[experience]]
+  title = "Policy & Portfolio Associate"
+  company = "Asian Infrastructure Investment Bank"
+  company_url = "https://www.aiib.org/"
+  location = "Beijing, China"
+  date_start = "2024-04-04"
+  date_end = ""
+  alt_location = ""
+  alt_date_start = ""
+  alt_date_end = ""
+  description = """
+  • Coordinating the Bank's internal ESG efforts
+  
+  • Supporting policy assurance for environmental and social safeguards
+  """
+
+
 [[experience]]
   title = "Data Scientist"
   company = "Carbon Trust"
   company_url = "https://www.carbontrust.com/"
   location = "London, United Kingdom"
   date_start = "2022-07-04"
-  date_end = ""
+  date_end = "2024-04-04"
   alt_location = ""
   alt_date_start = ""
   alt_date_end = ""
   description = """
-  • Development of regional environmental-economic models.
+  • Pioneered the development of regional and temporal Environmentally Extended Input Output (EEIO) models specifically for scope 3 GHG accounting.
   
   • Estimation and imputation of emission factors for our footprinting and assurance services.
 
-  • Database management and cloud computing using Microsoft Azure.
+  • Built and maintained python tool for screening the physical climate risk of clients' operations to support TCFD operations.
+  
+  • Built and automated the company's data processing pipelines through Microsoft Azure Databricks and Datafactory.
   """
 
 
