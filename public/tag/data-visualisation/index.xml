@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Visualisation | Finn-Henrik Barton</title>
+    <link>http://localhost:4321/tag/data-visualisation/</link>
+      <atom:link href="http://localhost:4321/tag/data-visualisation/index.xml" rel="self" type="application/rss+xml" />
+    <description>Data Visualisation</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Finn-Henrik Barton, 2024</copyright><lastBuildDate>Mon, 14 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:4321/img/social.png</url>
+      <title>Data Visualisation</title>
+      <link>http://localhost:4321/tag/data-visualisation/</link>
+    </image>
+    
+    <item>
+      <title>Macroeconomics of the Energy Union (Tasks 6 &amp; 7)</title>
+      <link>http://localhost:4321/publication/europeancommission/</link>
+      <pubDate>Mon, 14 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/publication/europeancommission/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exploring the Shadow Cost Gradient of Parking Standards: A Geographically-Differentiated Approach</title>
+      <link>http://localhost:4321/publication/shadowcostofparking/</link>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/publication/shadowcostofparking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Parking Prices and Availability, Mode Choice and Urban Form</title>
+      <link>http://localhost:4321/publication/oecd_roundtable/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/publication/oecd_roundtable/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

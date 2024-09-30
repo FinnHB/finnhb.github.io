@@ -1,0 +1,846 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Finn-Henrik Barton">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="The true cost of providing free parking is a lot higher than what most people may expect. This post discussed the implications of free parking using a simulation approach based on the  2006 paper by Donald Shoup, *Cruising for parking*.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://localhost:4321/blog/cruising-for-parking/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#F57A7A">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github-gist.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github-gist.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Code%7CInter%7CMiriam+Libre:wght@400;700%7CKarla%7CDM+Mono%7CWork+Sans%7CCalistoga&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu16830046500477124664.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu11715097996619582639.png">
+
+  <link rel="canonical" href="http://localhost:4321/blog/cruising-for-parking/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@FhBarton">
+  <meta property="twitter:creator" content="@FhBarton">
+  
+  <meta property="og:site_name" content="Finn-Henrik Barton">
+  <meta property="og:url" content="http://localhost:4321/blog/cruising-for-parking/">
+  <meta property="og:title" content="The True Cost of Cruising | Finn-Henrik Barton">
+  <meta property="og:description" content="The true cost of providing free parking is a lot higher than what most people may expect. This post discussed the implications of free parking using a simulation approach based on the  2006 paper by Donald Shoup, *Cruising for parking*."><meta property="og:image" content="http://localhost:4321/blog/cruising-for-parking/featured.jpg">
+  <meta property="twitter:image" content="http://localhost:4321/blog/cruising-for-parking/featured.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2022-01-10T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2022-01-12T23:22:36&#43;01:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  <title>The True Cost of Cruising | Finn-Henrik Barton</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Finn-Henrik</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/about"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication"><span>Research</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/blog"><span>Blog</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/teaching"><span>Teaching</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+  
+        <article class="article">
+            
+
+
+<div class="article-title">
+
+
+
+</div>
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>The True Cost of Cruising</h1>
+
+  
+  <p class="page-subtitle">The simulated cost of cruising for parking, based on the julia implementation of <em>Crusing for parking</em> (Shoup, 2006)</p>
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+    Jan 10, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-tag mr-1"></i><a href="/category/environment/">Environment</a>, <a href="/category/policy/">Policy</a>, <a href="/category/urban/">Urban</a>, <a href="/category/modelling/">Modelling</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+            <div class="article-container">
+              <div class="article-style">
+                
+<script src="/blog/cruising-for-parking/index_files/header-attrs/header-attrs.js"></script>
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>Cruising for parking may seem to be an innocent act, however its mere existence stems from misaligned incentives. An individual will only cruise given that they value their time &amp; fuel cost less than potential savings from parking off-street (parking garage/lot). The individual agent is unlikely to take into account the impact which their cruising has on other road users, both in terms of congestion and the additional pollution they emit. Although this may seem somewhat trite, Donald Shoup (<a href="https://www.researchgate.net/publication/222745846_Cruising_for_parking">2006</a>) presents a model which aims to bring to light the extent which these negative externalities can reach.</p>
+<p>Aligning the price of curb-side parking and off-street parking generally removes the incentive to cruise. Furthermore, as the curb-side prices are often regulated according to the local departments of transportation, increasing curb-side prices may act as another revenue stream for local governments. This creates a potential triple-dividend, where increases in curb-side parking can reduce emissions and congestion and the government can be used to offset other distortionary taxes. This post will follow Shoup’s model, based on the julia implementation which you can find over on my <a href="https://github.com/FinnHB/JuliaProjects/tree/main/ParkingSimulation">github</a>. For a more detailed overview of the modelling, the github repository contains an interactive notebook which discusses the model implementation.</p>
+</div>
+<div id="brief-overview-of-the-model" class="section level2">
+<h2>Brief overview of the model</h2>
+<p>For the sake of brevity, I will only briefly cover the model, and conveniently, there is only one equation to discuss:</p>
+<p><span class="math inline">\(c^* = \frac{t(m-p)}{f+nv}\)</span></p>
+<p>In the above equation, <span class="math inline">\(t\)</span> is the desired parking duration in hours, <span class="math inline">\(m\)</span> is the hourly price of off-street parking, and <span class="math inline">\(p\)</span> is the hourly price of parking on the curb. This makes the numerator on the right hand side the potential savings from parking on the curb contra parking off-street. <span class="math inline">\(f\)</span>, <span class="math inline">\(v\)</span>, and <span class="math inline">\(n\)</span> are the hourly fuel cost, hourly value of time, and the number of people in the car respectively. This means that the denominator represents the hourly cost one incurs from cruising. Resultantly, <span class="math inline">\(c^*\)</span> is the maximum amount of time which an agent is willing to cruise for.</p>
+</div>
+<div id="the-baseline-case" class="section level2">
+<h2>The baseline case</h2>
+<p>Based on this one equation, one can easily start to think of different policy tools which could be used to the incentive to cruise. Using the price levels for downtown Chicago, where <span class="math inline">\(p=\$1.00\)</span> and <span class="math inline">\(m=\$13.25\)</span>, and assuming a hourly value of time centered around <span class="math inline">\(\$25\)</span> with a fuel cost of <span class="math inline">\(\$0.74\)</span>, we can simulate the extent of cruising. Using a similar example to the paper, where we assume that there are 8 available parking spaces, we get the following scenario:</p>
+<p><img src="cruising_baseline.png" style="width:80.0%" />
+First, the available curb-side parking fills up (blue line). Once all the curb-side spaces have been occupied, agents start to cruise to see if an availability opens up (green line). Eventually, when some agents have cruised for their <span class="math inline">\(c*\)</span> amount of time, they will decide to park off-street (yellow line). Over time, as agents leave from the curb-side parking, they immediately get occupied with the cruisers, meaning that curb-side parking is constantly at full capacity.</p>
+<p>We can also see a plateauing of the number of agents who are cruising for parking at around 8. In this scenario, a total of 109 km were cruised during the 3 hour time-frame, assuming a coasting speed of 8km/h. Based on the emissions of a 2020 Honda Civic, this would have amounted to approximately 13kg of CO<span class="math inline">\(_2\)</span> emissions and 15g of NO<span class="math inline">\(_x\)</span>.</p>
+</div>
+<div id="increasing-parking-availability" class="section level2">
+<h2>Increasing parking availability</h2>
+<p>What may seem like an obvious answer, is to increase the amount of curbside parking availability. Ignoring limitations to increasing desirable curb-side parking, increasing the amount of available parking may result in temporarily alleviating the amount of cruising.</p>
+<p><img src="cruising_more_curb.png" style="width:80.0%" /></p>
+<p>Doubling the amount of available curb-side parking space from 8 to 16 has an immediate impact on the amount of cruising in the short term. Unfortunately, the same story as before repeats itself. As soon as the available curb-side parking has been occupied, the cruising persists, returning to the same stable point of approximately 8 agents cruising for parking. That being said, increasing the amount of available parking, can be an effective method of reducing coasting if the demand for parking is sufficiently low, and periods of high demand are sufficiently short.</p>
+</div>
+<div id="price-matching" class="section level2">
+<h2>Price matching</h2>
+<p>By far the most efficient method of reducing the incentive to cruise is to align the price of parking on the curb versus the price of parking off-street. By matching the prices, the numerator in our equation becomes zero and the cruising incentive disappears. As the price of parking on the curb and off-street the incentive to cruise dwindles until at the point where <span class="math inline">\(p=m\)</span> there is no longer any gains had from cruising.</p>
+<p><img src="cruising_combined_p.png" style="width:110.0%" /></p>
+<p>For reducing the incentive to cruise, there is no difference between increasing the price of curb-side parking versus reducing the cost of off-street parking. This can easily be seen by observing that the first derivatives are the same with the exception of a minus sign in front of <span class="math inline">\(\frac{\partial c^*}{\partial p}\)</span>:</p>
+<p><span class="math display">\[\frac{\partial c^*}{\partial p} = -\frac{t}{f+nv}\]</span> <span class="math display">\[\frac{\partial c^*}{\partial m} = +\frac{t}{f+nv}\]</span>
+That being said, reducing the price of off-street parking prices would incentivise more car owners to travel to urban areas rather than using public transport. This would increase the overall demand for parking, however, at the low prices, private companies may be unwilling to provide parking services, leaving the onus of providing parking on local governments. Furthermore, supply-side policies are not necessarily feasible in large metropolitan areas where the land fetches exorbitant prices.</p>
+</div>
+<div id="other-policy-levers" class="section level2">
+<h2>Other policy levers</h2>
+<p>I would also like to briefly give some attention to a few of the other variables which have been somewhat neglected so far. Incentivising carpooling would increase the <span class="math inline">\(n\)</span> term in the denominator, resulting in an increased cost of cruising since the time-cost is born by two agents. Similarly, imposing higher fuel taxes will increase <span class="math inline">\(f\)</span>, affecting the hourly cost of cruising. Lastly, I’d like to bring to attention the potential implication of limiting parking time. Limiting the amount of time an individual can park off-street would decrease the incentive to cruise for long periods of time. One reason for this would be due to the option between parking on the curb versus off-street no longer face the value of <span class="math inline">\(t\)</span>, and this parking time preference would need to be captured. On the other hand, limiting the parking duration may also act as a way of segregating the market if agents are unwilling to change their parking duration. In this case, less agent would interested in parking on the curb since we will only be considering a smaller set within the market. This said, due to the lack of prior expectations or a way of modelling different markets, this model is not apt to answer this question in full, however, I think it is some fun food for thought.</p>
+</div>
+<div id="concluding-remarks" class="section level2">
+<h2>Concluding remarks</h2>
+<p>Although at first, the concept of cruising for parking may seem somewhat banal. Many states and cities have perverse incentives set up, incentivising individuals to cruise for a ‘better’ parking deal. This can play an unexpectedly large role in local pollution and congestion. Although several policy tools can help reduce the cruising incentive, it is only by bringing the price of curb-side parking in alignment with the off-street price that we can get a triple dividend.</p>
+<font size="1">
+<p>
+Feature image source: <a href="https://unsplash.com/photos/6QIefFMpHEY">www.unsplash.com</a>
+</p>
+<p></font></p>
+</div>
+
+              </div>
+              
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/featured/">Featured</a>
+  
+  <a class="badge badge-light" href="/tag/featured-julia/">Featured Julia</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=http://localhost:4321/blog/cruising-for-parking/&amp;text=The%20True%20Cost%20of%20Cruising" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=The%20True%20Cost%20of%20Cruising&amp;body=http://localhost:4321/blog/cruising-for-parking/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=http://localhost:4321/blog/cruising-for-parking/&amp;title=The%20True%20Cost%20of%20Cruising" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/blog/emission-zones-in-london/">Emission Zones in London</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+            </div>
+        </article>
+  
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/julia.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/css.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/bash.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/javascript.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/markdown.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.cd45a9c0bbdd3dfb1c126917c601c9f2.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  <p class="powered-by">
+    © Finn-Henrik Barton, 2024 &ndash; 
+
+    </i>&ensp;<a href="https://github.com/FinnHB/fhbarton_website" target="_blank" rel="noopener"><i class="fas fa-code-branch"></i></a><a href="https://github.com/rstudio/blogdown" target="_blank" rel="noopener"></a>, the&ensp;<a href="https://cran.r-project.org/" target="_blank" rel="noopener"><i class="fab fa-r-project"></i> </a><a href="https://github.com/rstudio/blogdown" target="_blank" rel="noopener">blogdown</a> package, and the 
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>. <br> Code-base from <a href="https://isabella-b.com/" target="_blank" rel="noopener">isabella-b.com</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
