@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI | Finn-Henrik Barton</title>
+    <link>http://localhost:4321/category/ai/</link>
+      <atom:link href="http://localhost:4321/category/ai/index.xml" rel="self" type="application/rss+xml" />
+    <description>AI</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Finn-Henrik Barton, 2024</copyright><lastBuildDate>Tue, 01 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:4321/img/social.png</url>
+      <title>AI</title>
+      <link>http://localhost:4321/category/ai/</link>
+    </image>
+    
+    <item>
+      <title>How to make your own Anki flashcard generating assistant</title>
+      <link>http://localhost:4321/blog/anki-flashcards/</link>
+      <pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/blog/anki-flashcards/</guid>
+      <description>
+
+
+&lt;div id=&#34;why-automatically-generate-flashcards&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Why automatically generate flashcards?&lt;/h2&gt;
+&lt;p&gt;When studying for the Chinese language proficiency tests, HSK-1 and HSK-2, I found that I was spending far too much time on creating flashcards. After looking up the word, formatting, writing it out with the relevant pinyin, and sometimes finding a picture, it would often take close to 5-10 minutes per flashcard. After making the flashcards, I realised that I was simply remembering the cards, but when asked to recollect the word outside of my flashcard studies, I’d draw a blank. At this point, I was disheartened for having spent so much time on making something which wasn’t really working for me.&lt;/p&gt;
+&lt;p&gt;Generating the flashcards can be broken down into three simple steps.
+1) Get a list of words which you want to learn
+2) Design an appropriate prompt and flashcard templates based on your needs
+3) Feed the words into chatGPT using the prompt template developed and use the output to populate the flashcard template&lt;/p&gt;
+&lt;p&gt;There are a few bits and bobs around these steps, such as setting up the communication with ChatGPT and learning how to create decks with &lt;a href=&#34;https://github.com/kerrickstaley/genanki&#34;&gt;genanki&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;get-a-list-of-words-which-you-want-to-learn&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Get a list of words which you want to learn&lt;/h2&gt;
+&lt;p&gt;First step is getting the list of words which you want to learn. This was fairly straightforward as I was able to pull the HSK vocabulary directly from the web using a &lt;a href=&#34;https://github.com/lemmih/lesschobo/tree/master/data&#34;&gt;dataset put together by lemmih&lt;/a&gt;. Here, pulling these datasets, I can get the list of the HSK vocabulary from level 1 through 6.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;design-prompts&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Design prompts&lt;/h2&gt;
+&lt;div id=&#34;flashcard-template&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Flashcard template&lt;/h3&gt;
+&lt;p&gt;For the flashcard template, it is simply a matter of following the documentation on the &lt;a href=&#34;https://github.com/kerrickstaley/genanki&#34;&gt;genanki&lt;/a&gt; repo. The flashcard templates can be tinkered with through the HTML code, and custom CSS can be added if necessary. For my use-case, on the front, I just wanted the characters of the word which I was trying to learn. On the back, I wanted the definition of the word in English, an example sentence in Chinese, and the definition of the example sentence. Furthermore, on the back-side of the card, I wanted all the Chinese characters to be accompanied by the appropriate pinyin. The cards should look something like this:&lt;/p&gt;
+&lt;p&gt;&lt;insert images&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;prompt-template&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Prompt template&lt;/h3&gt;
+&lt;p&gt;For the chatGPT prompt, I needed to make sure that relevant information to fill out the flashcard template was returned and in a standardised format. To ensure that the definition of the word was clear, I ran two separate queries, one to extract the definition of the word, and another one to formulate the example sentence. The prompts could probably be further tweaked to contain all the information in a single prompt and give examples of the format of the response. For several flashcards, there were a few inconsistencies in the format, these were simply fixed manually as I noticed them, but with slightly better prompt engineering it could probably be fixed from the get-go.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;run-query-and-generate-deck&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Run query and generate deck&lt;/h2&gt;
+&lt;p&gt;Once the templates are generated, the rest of the process is relatively trivial. Simply set up the connection with ChatGPT through the preferred method (note that you will need a ChatGPT api key for most methods). If created the prompt templates directly in the code, they can be easily populated using &lt;code&gt;.format&lt;/code&gt; or through the use of python’s &lt;a href=&#34;https://realpython.com/python-f-strings/&#34;&gt;f-strings&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Depending on how good your prompts are and the format of your flashcards, you may need to conduct some cleaning on the chatGPT output before passing it to the Anki deck. Once all the words in the list are iterated through and generated, you’re golden. Just need to save the Anki deck and can then directly import the the &lt;code&gt;.gpkg&lt;/code&gt; file into Anki.&lt;/p&gt;
+&lt;div id=&#34;when-automatically-generating-anki-decks-may-or-may-not-work&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;When automatically generating Anki decks may or may not work&lt;/h3&gt;
+&lt;p&gt;I have found generating these Anki decks for language learning to be extremely useful. If I get bored of a set of examples, I can simply re-generate the examples/ Additionally, I can simply take note of words which I may not know and come across on my day-to-day, and quickly generate a deck to revise those words. Furthermore, instead of spending lots of time coming up with example sentences, I can simply ask ChatGPT to create examples that limit the vocabulary to HSK-1 to HSK-3. I can then tweak the examples based on my proficiency, or if there are specific areas of interest where I want the examples to be more focused towards.&lt;/p&gt;
+&lt;p&gt;Using chatGPT is a great tool for language learning since a lot of language learning is relatively standard. The definitions of words don’t change too much, it’s not a very hard task to come up with some example sentences. Where this may become more problematic, is if you’re relying in ChatGPT for factually correct information, e.g. if you need to study for an exam. In these instances, tools such as this should be approached with caution.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;when-automatically-generating-anki-decks-may-or-may-not-work-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;When automatically generating Anki decks may or may not work&lt;/h3&gt;
+&lt;p&gt;Feel free to clone my repo over on github and ask away if there are any questions! The code is currently set up for learning Chinese, however, with a bit of tinkering it should be easy enough to adjust the code to work for any language or other learning endeavors.&lt;/p&gt;
+&lt;div style=&#34;line-height:1%;&#34;&gt;
+&lt;br&gt;
+&lt;font size=&#34;1&#34;&gt;
+&lt;p&gt;
+Feature image source: &lt;a href=&#34;https://unsplash.com/photos/green-leafed-plant-beside-grey-concrete-post-chUBwfq-IlA&#34;&gt;www.unsplash.com&lt;/a&gt;
+&lt;/p&gt;
+&lt;/font&gt; &lt;font size=&#34;1&#34;&gt; &lt;br&gt;
+&lt;p&gt;
+Disclaimer: Views are my own and do not reflect the views of my employer
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
