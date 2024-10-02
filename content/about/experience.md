@@ -32,7 +32,9 @@ date_format = "Jan 2006"
   alt_date_end = ""
   description = """
   • Coordinating the Bank's internal ESG efforts
+  
   • Supporting policy assurance for environmental and social safeguards
+  
   • Providing analytical and data support for AIIB's Policy unit
   """
 
