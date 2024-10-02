@@ -21,7 +21,7 @@ email: "finn_henrik@hotmail.com"
 #organizations:
 #- name: Stanford University
 #  url: ""
-role: Data Scientist at Carbon Trust, London <br/>  <font size="1"> Views are my own </font>
+role: Policy and Data Associate for Portfolio Quality at AIIB, Beijing <br/>  <font size="1"> Views are my own </font>
 social:
 - icon: cv
   icon_pack: ai

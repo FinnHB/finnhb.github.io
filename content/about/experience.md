@@ -21,7 +21,7 @@ date_format = "Jan 2006"
 
 
 [[experience]]
-  title = "Policy & Portfolio Associate"
+  title = "Policy & Data Associate - Portfolio Quality"
   company = "Asian Infrastructure Investment Bank"
   company_url = "https://www.aiib.org/"
   location = "Beijing, China"
@@ -32,8 +32,8 @@ date_format = "Jan 2006"
   alt_date_end = ""
   description = """
   • Coordinating the Bank's internal ESG efforts
-  
   • Supporting policy assurance for environmental and social safeguards
+  • Providing analytical and data support for AIIB's Policy unit
   """
 
 
