@@ -1,0 +1,78 @@
+---
+title: "An introduction to spend-based emission factors"
+author: "Finn-Henrik Barton"
+date: '2024-10-13'
+output:
+  html_document:
+    toc: true
+  pdf_document:
+    keep_tex: true
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: yes
+slug: spend-ef-intro
+subtitle: Who knew that multiplying two numbers together could be so complex...
+summary: What are spend based emission factors!? I hear about them all over the place, something about providing a solution to this whole scope-3 thing. It's just multiplying two numbers together, right? there can't be that much to it, right?
+tags:
+- featured
+categories:
+- environment
+- carbon accounting
+---
+
+
+
+<p>At its core, carbon accounting boils down to multiplying two numbers together, activity information multiplied by an emission factor, and adding them up. Before working in this field, I could never have imagined the amount of thought, consideration, and in-depth knowledge required to properly match these two components together. From conversations with peers, friends, and family, I often find that the spend-based emission factors come across as a particularly difficult to grasp. In-part, I think this is due to the sometimes ludicrous assumptions that go with them and the perplexing dynamics hiding behind the numbers.</p>
+<p>In this brief-ish post, I aim to provide a general introduction to spend-based emission factors, point out some of the intricacies around them, and sprinkle in few caveats and considerations around their use right at the end. I would also like to preface that this post reflect my own and not those of my current or past employers. That said, without further ado…</p>
+<div id="what-are-spend-based-emission-factors" class="section level1">
+<h1>What are spend-based emission factors?</h1>
+<p>Spend-based emission factors are emission factors which are denominated in some spend-based unit, such as a unit of currency. A <span class="math inline">\(CO_2e\)</span> spend-based emission factor denominated in US dollars (USD) would take the form of <span class="math inline">\(\frac{kgCO2e}{USD}\)</span>. This means that if we have a spend-based emission factor of <span class="math inline">\(0.2 \frac{kgCO_2e}{USD}\)</span> for apples, there would be 200g of <span class="math inline">\(CO_2\)</span> equivalence (<span class="math inline">\(CO_2e\)</span>) for each US dollar spent. Spend-based emission factors also exist for other pollutants, for the case of this post we’ll focus only on <span class="math inline">\(CO_2e\)</span>.</p>
+<p>The key feature spend-based emission factors is that they assume a linear relationship between expenditure and emissions. This may sound like a ridiculous assumption, and in many cases it is. Just because a designer chair is 10 times the price of a non-designer chair, that does not mean that the emissions associated with the chair is 10 times as much. Similarly, clothes made from 100% recycled material may be sold at a markup but is unlikely to emit more emissions.</p>
+</div>
+<div id="so-why-do-we-use-them" class="section level1">
+<h1>So why do we use them?</h1>
+<p>There are two main reasons why we may choose to use spend-based emission factors; either due to lack of quantity data or, because what we are measuring is not easily countable. Let’s tackle these one-by-one.</p>
+<div id="lacking-data" class="section level3">
+<h3>Lacking data</h3>
+<p>Ideally for carbon accounting, we want a detailed breakdown of the quantity of different inputs to the company’s production. However, in many instances, companies may not have an accurate tally of the quantity of each material that they purchase. More often than not, they do know how much they spent on different spend-categories. The reason for this is that their spend is an essential part of the Company’s finances.</p>
+</div>
+<div id="not-easily-countable" class="section level3">
+<h3>Not easily Countable</h3>
+<p>Other activities are simply difficult to count, or the counting of these activities would bear little meaning for the purpose of carbon accounting. Let’s assess the case for the emissions from marketing activities. We could quantify a marketing activity as a single marketing campaign, but what would this really mean in carbon accounting terms? Depending on the type, size, and medium of a campaign, the emissions would vary drastically. There would be an infinite range of different potential marketing campaigns, and emissions associated with them. Hence, since it is an extremely heterogenous product, having an emission factor for a marketing campaign would bear little meaning — not to mention the indescribable headache it would be to do the lifecycle assessment (LCA). In this instance, spend-based emission factors may be preferable, as they capture the long-tail of activities and somewhat capture elements such as the complexity of the campaign through the price dynamic (bigger campaigns are likely more expensive and therefore will be associated with higher emissions).</p>
+<p>As you can imagine, it would be a terrible idea to use a generic spend-based emission factor for apples. The reason being that good quantity-based emission factors already exist and apples are generally easily countable. If you are in the peculiar situation where you have spent a certain amount on apples but you don’t know how many you have, there is an easy fix.</p>
+</div>
+</div>
+<div id="the-types-of-spend-based-emission-factors" class="section level1">
+<h1>The types of spend-based emission factors</h1>
+<p>Spend-based emission factors can be classified into two different categories. They can either be derived from commodity prices or from environmentally extended input output (EEIO) models. Both methods have their benefits and drawbacks.</p>
+<div id="commodity-price-spend-based-emission-factors" class="section level3">
+<h3>Commodity price spend-based emission factors</h3>
+<p>Often the preferred method, if the data is available, is to calculate your own spend-based emissions factors using average commodity prices and an appropriate emission factor generated from an LCA. Let’s say 1kg of apples costs 3USD and you found an appropriate emission factor that states that 1kg of apples corresponds to <span class="math inline">\(0.45 kgCO_2e\)</span>, our spend-based emission factor would simply be <span class="math inline">\(\frac{0.45}{3} = 0.15\frac{kgCO_2e}{USD}\)</span>. Note that this is essentially the same as converting the amount spent on apples to a quantity of apples, then multiplying it by your LCA emission factor. These types of spend-based emission factors can also be thought of as a “best-guess” when quantity data is missing. This also gives you a greater deal of transparency and customisability for individual commodities. In this instance, you hopefully know exactly the scope of the LCA emission factor and the price denomination used when purchasing the apples (e.g. before or after taxes, or potentially a special rebated price for your company).</p>
+</div>
+<div id="eeio-spend-based-emission-factors" class="section level3">
+<h3>EEIO spend-based emission factors</h3>
+<p>These emission factors are quite a bit more complicated to calculate and I won’t go into the details in this blog post. In essence, EEIO emission factors reflect an industry average by looking at the economy-wide economic inputs and outputs as well as the total emissions associated with each industry. When calculating these emission factors, dependencies between industries and commodities are reflected in the emission factor. Consequently, EEIO emission factors usually capture scope 1,2, and 3. There is some variety between EEIO models, depending on exactly which price denomination is used and the scope covered by the emissions data. Ultimately, the important message for EEIO emission factors is that they reflect an industry average and is therefore unlikely to be reflective of a single commodity, such as an apple.</p>
+<p>Most of the time when people talk about spend-based emission factors, they would be referring to EEIO emission factors. In-part, this is due to the convenience of these emission factors for capturing scope 3, which won’t necessarily be the case for the commodity price spend-based emission factors. Additionally, although EEIO emission factors are more difficult to calculate, once calculated, they usually capture all the activities of an economy. This makes EEIO emission factors an extremely powerful and convenient tool.</p>
+</div>
+</div>
+<div id="caveats-and-considerations" class="section level1">
+<h1>Caveats and considerations</h1>
+<p>As spend-based emissions only consist of two elements, the emissions (numerator) and the price denomination (denominator), whenever evaluate the appropriateness of an emission factors, we do so from these two bases. For example, the price denomination may not be in the right units (e.g. VAT exclusive, real prices, or wrong currency) or the emissions may not capture the relevant scope (e.g. cradle to gate or gate to gate).</p>
+<p>If a spend-based emission factor is denominated in USD but we want to use the emission factors for a UK company that has their spend in GBP, we must convert the emission factor to GBP before we can apply it. We can achieve this by simply multiplying the emission factor by the GBP to USD exchange rate. Keep in mind, although we may have converted the emission factor to by denominated in GBP, all the underlying assumptions made when generating the emission factor will remain. Consequently, we will still be applying a US emission factor to an expenditure in GBP. Implicitly, for the EEIO emission factors, this would mean that we would be assuming that the economic structure and carbon intensities of production are the same in both the UK and the US. Although comparing the US and the UK may not be too radical, using US EEIO emission factors for a country like Timor-Leste would be highly questionable, even if we do the correct currency conversions. Furthermore, one should think carefully around the price relationship across countries. Let’s use insulin as an example, in the US one vial may cost around 100 USD, whereas the UK dollar equivalence price may be 8 USD. It is likely that the emissions associated with a vial of insulin is very similar in the two countries, but if we apply the US insulin spend-based emission factor to the UK, we would be underestimating emissions by around a factor of 12. Similarly, if we used a UK emission factor in the US, we would be vastly overestimating emissions.</p>
+<p>Another consideration is to make sure that the price denomination aligns between your emission factors and your spend units. For example, were the spend-based emissions factors calculated inclusive or exclusive of VAT? What is the scope of the emission in the emission factor? Does it include distribution? Is the commodity which the spend-based emission factors being applied to likely to be imported? In which case, how accurately has the supply chain of the exporting country been captured? These are all questions which you should have answers to and assessed to evaluate the appropriateness of the application of spend-based emission factors.</p>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>It is extremely tempting to get a company’s expenditure and simply multiply it by a set of spend-based emission factors to create a full scope 1,2, and 3 footprint for the company. I would be overjoyed if it was that simple, unfortunately, it isn’t, and this blog post only scratches the surface. Although spend-based emission factors may look simple on the surface, one need to treat them with extreme caution and be very aware of the assumptions that are hiding under the surface. Sure, anyone can multiply two numbers together, but doing it properly is inconceivably hard.</p>
+<div style="line-height:1%;">
+<br>
+<font size="1">
+<p>
+Feature image source: <a href="https://unsplash.com/photos/macro-shot-of-gray-and-white-birds-IChRBaP9gTY">www.unsplash.com</a>
+</p>
+</font> <font size="1"> <br>
+<p>
+Disclaimer: Views are my own and do not reflect the views of my employer
+</div>
+</div>

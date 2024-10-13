@@ -13,6 +13,62 @@
     </image>
     
     <item>
+      <title>An introduction to spend-based emission factors</title>
+      <link>http://localhost:4321/blog/spend-ef-intro/</link>
+      <pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/blog/spend-ef-intro/</guid>
+      <description>
+
+
+&lt;div id=&#34;what-are-spend-based-emission-factors&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;What are spend-based emission factors?&lt;/h1&gt;
+&lt;p&gt;Spend-based emission factors are emission factors which are denominated in some spend-based unit, such as a unit of currency. A &lt;span class=&#34;math inline&#34;&gt;\(CO_2e\)&lt;/span&gt; spend-based emission factor denominated in US dollars (USD) would take the form of &lt;span class=&#34;math inline&#34;&gt;\(\frac{kgCO2e}{USD}\)&lt;/span&gt;. This means that if we have an emission factor of &lt;span class=&#34;math inline&#34;&gt;\(0.2 kgCO_2e\)&lt;/span&gt; for apples, that on average, there would be around 200g of &lt;span class=&#34;math inline&#34;&gt;\(CO_2\)&lt;/span&gt; equivalence (&lt;span class=&#34;math inline&#34;&gt;\(CO_2e\)&lt;/span&gt;) for each US dollar spent.&lt;/p&gt;
+&lt;p&gt;The key feature spend-based emission factors is namely that they assume a linear relationship between expenditure and emissions. This may sound like a ridiculous assumption, and in many cases you would be correct. Just because a designer chair is 10 times the price of a non-designer chair, doesn’t mean that the emissions associated with the chair is 10 times as much. Similarly, clothes made from 100% recycled material may be sold at a markup, but is unlikely to emit more emissions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;so-why-do-we-use-them&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;So why do we use them?&lt;/h1&gt;
+&lt;p&gt;There are two main reasons why we may choose to use spend-based emission factors, namely either due to lack of quantity data or because what we are measuring is not easily countable. Let’s tackle these one-by-one.&lt;/p&gt;
+&lt;div id=&#34;lacking-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Lacking data&lt;/h3&gt;
+&lt;p&gt;Ideally for carbon accounting, we want a detailed breakdown of the quantity of different inputs to the company’s production. However, in many instances, companies may not have an accurate tally of the quantity of each material that they purchase, however, more often than not, they do know how much they spent on different spend-categories. The reason for this is that their spend is an essential part of the accounting process and the Company’s finances.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;not-easily-countable&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Not easily Countable&lt;/h3&gt;
+&lt;p&gt;Other activities, are simply difficult to count, or the counting of these activities would not be meaningful for the purpose of carbon accounting. Let’s assess the case for the emissions from marketing activities. We could quantify a marketing activity as a single marketing campaign, but what would this really mean in carbon accounting terms? Depending on the company’s needs the type, size, and medium of a campaign may differ significantly. There would be an infinite range of different potential marketing campaigns, and emissions associated with them. Hence, having an emission factor for a marketing campaign would bear little meaning — not to mention the indescribable headache it would be to do the lifecycle assessment (LCA). In this instance, spend-based emission factors may be preferable, as they capture the long-tail of activities and somewhat capture elements such as the complexity of the campaign through the price dynamic.&lt;/p&gt;
+&lt;p&gt;As you can imagine, it would be a terrible idea to use a generic spend-based emission factor for apples. The reason being that good quantity-based emission factors already exist and apples are generally easily countable. If you are in the peculiar situation where you have spent a certain amount on apples but you don’t know how many you have, there is an easy fix. This brings me to my next point, the two types of spend based emission factors.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-types-of-spend-based-emission-factors&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;The types of spend-based emission factors&lt;/h1&gt;
+&lt;p&gt;Spend-based emission factors can be classified into two different categories. They can either be derived from commodity prices or from environmentally extended input output (EEIO) models. Both methods have their benefits and drawbacks.&lt;/p&gt;
+&lt;div id=&#34;commodity-price-spend-based-emission-factors&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Commodity price spend-based emission factors&lt;/h3&gt;
+&lt;p&gt;Often the preferred method, if the data is available, is to calculate your own spend-based emissions factors using average commodity prices and an appropriate emission factor generated from an LCA. Let’s say 1kg of apples costs 3USD and you found an appropriate emission factor that states that 1kg of apples corresponds to &lt;span class=&#34;math inline&#34;&gt;\(0.45 kgCO_2e\)&lt;/span&gt;, our spend-based emission factor would simply be &lt;span class=&#34;math inline&#34;&gt;\(\frac{0.45}{3} = 0.15\frac{kgCO_2e}{USD}\)&lt;/span&gt;. Note that this is essentially the same as converting the amount spent on apples to a quantity of apples, then multiplying it by your emission LCA emission factor. These types of spend-based emission factors can also be thought of as a best-guess when quantity data is missing. This also gives you a greater deal of transparency and customisability for individual commodities. In this instance, you hopefully know exactly the scope of the LCA emission factor and the price denomination used (e.g. before or after taxes, or potentially a special rebated price for your specific company).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;eeio-spend-based-emission-factors&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;EEIO spend-based emission factors&lt;/h3&gt;
+&lt;p&gt;These emission factors are quite a bit more complicated to calculate and I won’t go into the details in this blog post. In essence, EEIO emission factors reflect an industry average by looking at the economy-wide economic output and the emissions associated with each industry or commodity. When calculating these emission factors, dependencies between industries and commodities are reflected in the emission factor. Consequently, EEIO emission factors usually capture scope 1,2, and 3. There are some variety here between EEIO models, depending on exactly which price denomination is used and again the scope covered by the total emissions. Ultimately, the important message for EEIO emission factors is that they reflect an industry average and is therefor unlikely to be reflective of a single commodity, such as an apple.&lt;/p&gt;
+&lt;p&gt;Most of the time when people talk about spend-based emission factors, they would be referring to EEIO emission factors. In-part this is due to the convenience of these emission factors for capturing scope 3, which won’t necessarily be the case for the commodity price spend-based emission factors. Additionally, although EEIO emission factors are more difficult to calculate, once calculated, they usually capture all the activities of an economy. This makes EEIO emission factors an extremely powerful and convenient tool.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;considerations&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Considerations&lt;/h1&gt;
+&lt;p&gt;As spend-based emissions are only consist of two elements, the emissions and the price denomination &lt;span class=&#34;math inline&#34;&gt;\(\frac{emissions}{price}\)&lt;/span&gt;. This means that all spend-based considerations can be through of as either changes to the numerator or denominator. For example, if the price used for calculating your spend-based emissions factors include VAT, then the denominator increases, and the emission factor decreases. This means that if a spend-based emissions factor that was calculated inclusive of VAT and applied to a price not inclusive of VAT, then the emissions would be underestimated.&lt;/p&gt;
+&lt;div style=&#34;line-height:1%;&#34;&gt;
+&lt;br&gt;
+&lt;font size=&#34;1&#34;&gt;
+&lt;p&gt;
+Feature image source: &lt;a href=&#34;https://unsplash.com/photos/green-leafed-plant-beside-grey-concrete-post-chUBwfq-IlA&#34;&gt;www.unsplash.com&lt;/a&gt;
+&lt;/p&gt;
+&lt;/font&gt; &lt;font size=&#34;1&#34;&gt; &lt;br&gt;
+&lt;p&gt;
+Disclaimer: Views are my own and do not reflect the views of my employer
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How to make your own Anki flashcard generating assistant</title>
       <link>http://localhost:4321/blog/anki-flashcards/</link>
       <pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate>
@@ -22,40 +78,85 @@
 
 &lt;div id=&#34;why-automatically-generate-flashcards&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Why automatically generate flashcards?&lt;/h2&gt;
-&lt;p&gt;When studying for the Chinese language proficiency tests, HSK-1 and HSK-2, I found that I was spending far too much time on creating flashcards. After looking up the word, formatting, writing it out with the relevant pinyin, and sometimes finding a picture, it would often take close to 5-10 minutes per flashcard. After making the flashcards, I realised that I was simply remembering the cards, but when asked to recollect the word outside of my flashcard studies, I’d draw a blank. At this point, I was disheartened for having spent so much time on making something which wasn’t really working for me.&lt;/p&gt;
-&lt;p&gt;Generating the flashcards can be broken down into three simple steps.
-1) Get a list of words which you want to learn
-2) Design an appropriate prompt and flashcard templates based on your needs
-3) Feed the words into chatGPT using the prompt template developed and use the output to populate the flashcard template&lt;/p&gt;
-&lt;p&gt;There are a few bits and bobs around these steps, such as setting up the communication with ChatGPT and learning how to create decks with &lt;a href=&#34;https://github.com/kerrickstaley/genanki&#34;&gt;genanki&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;When studying for the Chinese language proficiency tests, HSK-1 and HSK-2, I found that I was spending far too much time on creating flashcards. It would often spend around 5-10 minutes per flashcard. From looking up the definition of the word, getting the pinyin with the right tones, ensuring correct formatting of the card, and coming up with an example sentence. Particularly with the example sentences, with limited understanding of Chinese to begin with, coming up with example sentences was extremely challenging. Moreover, when I checked the cards with a native Chinese speaker, there would still be mistakes, strange wordings, and other issues present. Although some of these problems may be due to being a novice in flashcard making, I found that I was spending more time creating flashcards than actively studying the language. Additionally, the more flashcards I made, I would notice small changes in the formatting or additional information which I wanted to add, and then need to go back and edit all the flashcards all over again.&lt;/p&gt;
+&lt;p&gt;I figured many of these issues could easily be solved by leveraging AI to generate the decks. In the same amount of time it would take to finish the HSK-1 flashcard deck, I could code up my own flashcard making assistant. This assistant would allow me to quickly tailor the examples to my interests and needs, and quickly change the format and information on the flashcards as my learning learning needs changed. If I wanted to re-generate some cards, because I had simply memorised the card rather than the content, it could all be done in the click of a button.&lt;/p&gt;
+&lt;p&gt;Enough about the the why, and let’s look at the how. The code itself is quite simple, consisting of less than 150 lines of documented code which you can find it over on my &lt;a href=&#34;https://github.com/FinnHB/GenerateAnkiDeck&#34;&gt;GitHub&lt;/a&gt;. The process of generating the flashcards can be broken down into three simple steps.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Getting a list of words which you want to learn&lt;/li&gt;
+&lt;li&gt;Design an appropriate prompt and flashcard templates based on your needs&lt;/li&gt;
+&lt;li&gt;Feed the words into chatGPT using the prompt template developed and use the output to populate the flashcard template&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;There are a few bits and bobs around these steps, such as setting up the communication with ChatGPT and learning how to create decks with &lt;a href=&#34;https://github.com/kerrickstaley/genanki&#34;&gt;genanki&lt;/a&gt;. The essence of the code really boils down to the templates, as these are what fundamentally capture your specific query and needs.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;get-a-list-of-words-which-you-want-to-learn&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Get a list of words which you want to learn&lt;/h2&gt;
-&lt;p&gt;First step is getting the list of words which you want to learn. This was fairly straightforward as I was able to pull the HSK vocabulary directly from the web using a &lt;a href=&#34;https://github.com/lemmih/lesschobo/tree/master/data&#34;&gt;dataset put together by lemmih&lt;/a&gt;. Here, pulling these datasets, I can get the list of the HSK vocabulary from level 1 through 6.&lt;/p&gt;
+&lt;p&gt;First step is getting the list of words which you want to learn. This was fairly straightforward as I was able to pull the HSK vocabulary directly from the web using a dataset put together by &lt;a href=&#34;https://github.com/lemmih/lesschobo/tree/master/data&#34;&gt;lemmih&lt;/a&gt;. Here, I can pull the list of the HSK vocabulary from level 1 through 6 directly into the code. Naturally, if you have your own dataset, this can simply be read in from a local file or another available source.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;#Imports
+import pandas as pd
+
+#Specify HSK level dataset to read
+hsk_level = 1
+wordlist_file = f&amp;quot;https://raw.githubusercontent.com/lemmih/lesschobo/master/data/HSK_Level_{hsk_level}_(New_HSK).csv&amp;quot;
+
+#Read in word list file
+word_df = pd.read_csv(wordlist_file, index_col=0, header=1)
+
+#Data-source specific formatting, in this case, removing any words which do not correspond with the appropriate HSK level.
+mask =   [str(x)[0] == str(hsk_level) for x in word_df[&amp;quot;HSK \nLevel-Order&amp;quot;]]
+words = word_df.loc[mask, &amp;quot;Word&amp;quot;].values&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;design-prompts&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Design prompts&lt;/h2&gt;
 &lt;div id=&#34;flashcard-template&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Flashcard template&lt;/h3&gt;
-&lt;p&gt;For the flashcard template, it is simply a matter of following the documentation on the &lt;a href=&#34;https://github.com/kerrickstaley/genanki&#34;&gt;genanki&lt;/a&gt; repo. The flashcard templates can be tinkered with through the HTML code, and custom CSS can be added if necessary. For my use-case, on the front, I just wanted the characters of the word which I was trying to learn. On the back, I wanted the definition of the word in English, an example sentence in Chinese, and the definition of the example sentence. Furthermore, on the back-side of the card, I wanted all the Chinese characters to be accompanied by the appropriate pinyin. The cards should look something like this:&lt;/p&gt;
-&lt;p&gt;&lt;insert images&gt;&lt;/p&gt;
+&lt;p&gt;For the flashcard template, we can follow the guidance from the &lt;a href=&#34;https://github.com/kerrickstaley/genanki&#34;&gt;genanki&lt;/a&gt; repo. The flashcard templates can be tinkered with through the HTML and custom CSS. When designing the template there were a few things which I wanted:&lt;/p&gt;
+&lt;div id=&#34;front-of-card&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Front of card&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Only the character for the word which I wanted to learn with no pinyin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;back-of-card&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Back of card&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Pinyin of the word&lt;/li&gt;
+&lt;li&gt;The English definition of the word&lt;/li&gt;
+&lt;li&gt;An example sentence in Chinese with the pinyin and an English translation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When designing the cards, I also wanted the definition to pop out, with the example sentence taking a secondary weight and therefor wanted to separate the definition and the example sentence by a clear marker. The design adopted looks something like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;example_flashcard1.png&#34; style=&#34;width:80.0%&#34; /&gt;
+The code for the card template can also be found in the &lt;a href=&#34;https://github.com/FinnHB/GenerateAnkiDeck/blob/main/Scripts/genanki_model_templates.py&#34;&gt;github repo&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;prompt-template&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Prompt template&lt;/h3&gt;
-&lt;p&gt;For the chatGPT prompt, I needed to make sure that relevant information to fill out the flashcard template was returned and in a standardised format. To ensure that the definition of the word was clear, I ran two separate queries, one to extract the definition of the word, and another one to formulate the example sentence. The prompts could probably be further tweaked to contain all the information in a single prompt and give examples of the format of the response. For several flashcards, there were a few inconsistencies in the format, these were simply fixed manually as I noticed them, but with slightly better prompt engineering it could probably be fixed from the get-go.&lt;/p&gt;
+&lt;p&gt;For the chatGPT prompt, I needed to make sure that relevant information to fill out the flashcard template was returned and in a standardised format. To ensure that the definition of the word was clear, I ran two separate queries, one to extract the definition of the word, and another one to formulate the example sentence. Additionally, for both instances, additional context was passed to chatGPT to set the scene and help shape the format and content of the response.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;#Word to translate (A list of words would be iterated through)
+word = &amp;quot;舒服&amp;quot;
+
+#Context and query to be sent to chatGPT for translation of words.
+gpt_translate_context = &amp;#39;You are a Chinese to English dictionary, providing concise translations. You only return the translation and pinyin.&amp;#39;
+gpt_translate_query = word
+
+#Context and query to be sent to chatGPT for generating example sentences.
+gpt_sentence_context = &amp;#39;You are a helpful assistant that is helping an English speaker to learn Chinese. Try to use simple words in the HSK1 to HSK3 vocabulary lists.&amp;#39;
+gpt_sentence_query = f&amp;#39;Create a short example sentence in Chinese that uses &amp;quot;{word}&amp;quot;. Include the translated sentence, the pinyin, and english translation, each separated by a new line.&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The above prompts could further be tweaked and improved, however, I found these to be sufficient for my use-case for now, but will likely update this in the future. Additionally, it may be possible to group together queries to reduce the cost of calling the API, however, this cost is already minimal so it’s not a major concern.
+For several flashcards, there were a few inconsistencies in the formatting, I have fixed these manually as I noticed them while revising, but with slightly better prompt engineering it could probably be fixed from the get-go.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;run-query-and-generate-deck&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Run query and generate deck&lt;/h2&gt;
-&lt;p&gt;Once the templates are generated, the rest of the process is relatively trivial. Simply set up the connection with ChatGPT through the preferred method (note that you will need a ChatGPT api key for most methods). If created the prompt templates directly in the code, they can be easily populated using &lt;code&gt;.format&lt;/code&gt; or through the use of python’s &lt;a href=&#34;https://realpython.com/python-f-strings/&#34;&gt;f-strings&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Depending on how good your prompts are and the format of your flashcards, you may need to conduct some cleaning on the chatGPT output before passing it to the Anki deck. Once all the words in the list are iterated through and generated, you’re golden. Just need to save the Anki deck and can then directly import the the &lt;code&gt;.gpkg&lt;/code&gt; file into Anki.&lt;/p&gt;
+&lt;p&gt;Once the templates are generated, the rest of the process is relatively trivial. Simply set up the connection with chatGPT through the preferred method (note that you will need a ChatGPT api key for most methods). If created the prompt templates directly in the code, they can be easily populated using &lt;code&gt;.format&lt;/code&gt; or through the use of python’s &lt;a href=&#34;https://realpython.com/python-f-strings/&#34;&gt;f-strings&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Depending on how good your prompts are and the format of your flashcards, you may need to conduct some cleaning on the chatGPT output before passing it to the Anki deck. Once all the words in the list are iterated through and generated, you’re golden. Just need to save the Anki deck and can then directly import the the &lt;code&gt;.apkg&lt;/code&gt; file into Anki.&lt;/p&gt;
 &lt;div id=&#34;when-automatically-generating-anki-decks-may-or-may-not-work&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;When automatically generating Anki decks may or may not work&lt;/h3&gt;
 &lt;p&gt;I have found generating these Anki decks for language learning to be extremely useful. If I get bored of a set of examples, I can simply re-generate the examples/ Additionally, I can simply take note of words which I may not know and come across on my day-to-day, and quickly generate a deck to revise those words. Furthermore, instead of spending lots of time coming up with example sentences, I can simply ask ChatGPT to create examples that limit the vocabulary to HSK-1 to HSK-3. I can then tweak the examples based on my proficiency, or if there are specific areas of interest where I want the examples to be more focused towards.&lt;/p&gt;
 &lt;p&gt;Using chatGPT is a great tool for language learning since a lot of language learning is relatively standard. The definitions of words don’t change too much, it’s not a very hard task to come up with some example sentences. Where this may become more problematic, is if you’re relying in ChatGPT for factually correct information, e.g. if you need to study for an exam. In these instances, tools such as this should be approached with caution.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;when-automatically-generating-anki-decks-may-or-may-not-work-1&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;When automatically generating Anki decks may or may not work&lt;/h3&gt;
+&lt;div id=&#34;future-avenues-of-improvement&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Future avenues of improvement&lt;/h3&gt;
+&lt;p&gt;The main area of improvements will be around refining the prompts and the card template for the given needs. However, there are many new additions which I may have a look at adding in the future. For one, we could have a look at generating AI images based on the example sentences. As AI generated images can often be a bit… quirky, they may provide a really good mental anchor for remember a specific word. Additionally, one of the lacking features I have found with the current deck is that I cannot listen to the pronunciation of words. This has been good for forcing me to read the characters, but may be beneficial in some instances. Adding such a feature may also be beneficial, particularly for language learning. I think something which may be on my list in the future would be to see if I can find a way to break-down the characters to their fundamental radicals to help get a better understanding of the word in context to other words.&lt;/p&gt;
 &lt;p&gt;Feel free to clone my repo over on github and ask away if there are any questions! The code is currently set up for learning Chinese, however, with a bit of tinkering it should be easy enough to adjust the code to work for any language or other learning endeavors.&lt;/p&gt;
 &lt;div style=&#34;line-height:1%;&#34;&gt;
 &lt;br&gt;

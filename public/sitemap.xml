@@ -3,28 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:4321/category/ai/</loc>
+    <lastmod>2024-10-02T13:22:11+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/blog/spend-ef-intro/</loc>
+    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/category/carbon-accounting/</loc>
     <lastmod>2024-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/categories/</loc>
+    <lastmod>2024-10-02T13:22:11+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/category/environment/</loc>
     <lastmod>2024-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/tag/featured/</loc>
-    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-02T13:22:11+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/tag/featured-python/</loc>
+    <lastmod>2024-10-02T13:22:11+08:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/</loc>
-    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-02T13:22:11+08:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/blog/anki-flashcards/</loc>
-    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-02T13:22:11+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:4321/category/language/</loc>
-    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:4321/category/python/</loc>
-    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
+    <loc>http://localhost:4321/category/language-learning/</loc>
+    <lastmod>2024-10-02T13:22:11+08:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/tags/</loc>
-    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-02T13:22:11+08:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/publication-type/4/</loc>
     <lastmod>2023-04-07T14:16:18+02:00</lastmod>
@@ -33,7 +42,7 @@
     <lastmod>2023-04-07T14:16:18+02:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/authors/</loc>
-    <lastmod>2023-04-07T14:16:18+02:00</lastmod>
+    <lastmod>2024-10-02T13:14:24+08:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/author/bence-kiss-dobronyi/</loc>
     <lastmod>2023-04-07T14:16:18+02:00</lastmod>
@@ -85,9 +94,6 @@
   </url><url>
     <loc>http://localhost:4321/author/zsofia-komuves/</loc>
     <lastmod>2023-04-07T14:16:18+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:4321/category/environment/</loc>
-    <lastmod>2022-12-07T21:29:09+00:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/category/opinion/</loc>
     <lastmod>2022-12-07T21:29:09+00:00</lastmod>
@@ -210,7 +216,7 @@
     <lastmod>2021-06-15T09:25:29+02:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/author/finn-henrik-barton/</loc>
-    <lastmod>2023-04-07T14:16:18+02:00</lastmod>
+    <lastmod>2024-10-02T13:14:24+08:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/publication/</loc>
     <lastmod>2022-03-20T15:59:45+00:00</lastmod>
