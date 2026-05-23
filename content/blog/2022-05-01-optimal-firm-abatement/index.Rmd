@@ -56,7 +56,7 @@ library("JuliaCall")
 knitr::opts_chunk$set(
 	warning = FALSE
 )
-julia <- JuliaCall::julia_setup(JULIA_HOME = "C:/Users/finn_/AppData/Local/Programs/Julia-1.7.2/bin")
+julia <- JuliaCall::julia_setup(JULIA_HOME = NULL)
 ```
 
 Now that you are all caught up, lets jump in to the optimisation and solving for how a firm may behave under different scenarios. 
