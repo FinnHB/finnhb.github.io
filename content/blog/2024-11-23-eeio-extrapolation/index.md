@@ -1,0 +1,52 @@
+---
+title: "A deeper dive into adjustments of spend-based emission factors"
+date: 2024-11-23
+slug: spend-ef-extrap
+subtitle: "Regional and temporal considerations for spend-based emission factors"
+summary: "With increasing requirements for scope 3 disclosure, spend-based emission factors are in high demand. However, as these emission factors are tied to economic output, it's important to understand the temporal and regional assumptions of these models to ensure that the emission factors are applied as appropriately as possible."
+tags: ["carbon accounting", "environment"]
+categories: ["carbon accounting", "environment"]
+cover:
+  image: featured.jpg
+  hiddenInList: true
+---
+
+This blog post is a follow-on post from the previous [introduction to spend-based emission factors](/blog/spend-ef-intro), if you are not familiar with spend-based emission factors or simply want a refresher, I would recommend reading that post first. This post will be diving deeper into the underlying assumptions of spend-based emission factors and some of the key considerations when using them across regions and time periods. This post will primarily be focusing on spend-based emission factors derived from Environmentally Extended Input Output (EEIO) models, however, many of the principles will still apply to commodity price spend-based emission factors.
+
+# EEIO Assumptions
+
+EEIO models derive the spend-based emission factors by cascading and weighting industry relationships throughout the supply chain and multiplying them by the average industry emission intensity for a given commodity. The benefit of using this type of model is that we can capture the whole supply chain (theoretically to infinity) and we avoid double counting, as emission factors are directly linked to the total amount of emissions in the given economy. The term "the given economy" is important here, as for when we are dealing with EEIO models, we are only dealing with one region. Imports and exports are superficially captured, with the assumption that imports face an identical production function and carbon intensity of production as the main region. Thinking about this for more than a few seconds, one realizes that this is a very big assumption. The United States imports a large quantity of goods from China, however, the Chinese economy is very different from that of the US. Not only in terms of the goods and services that they produce, but also the energy mix, cost of labour, and methods of production. This means that for any US EEIO model, we are assuming that all the countries that export goods and services to the US are functionally identical to the US.
+
+One way to get around this is to use a Multi-Region Environmentally Extended Input Output (MREEIO) model. These models augment an EEIO model by including the inter-industry and/or inter-commodity relationship between each region. Let's say we have an MREEIO model between the US, China, and the Rest of the World (RoW), if we wanted to calculate the emissions for one unit of agricultural output, we would trace the domestic industry inputs, Chinese industry inputs, and the RoW industry inputs through the supply chain. Through the MRIO, we can apply differentiated characteristics to each of the regions, capturing their unique economic characteristics as well as apply differentiated carbon intensities of production. So MREEIOs can solve our headache of imports and allow for much more accurate emission factors in this highly interconnected world, right? Well, the difficulty with MREEIO models is that we do not usually have the data of industry-by-industry trade flows between all regions, and even if we did, this data would seldomly be classified in the same way. Consequently, MREEIO models can become very large and complex to build, and more importantly, they often rely heavily on estimated numbers. In some instances, where institutional memory is not retained or the models are not appropriately documented or maintained, new data will often be estimated based on previously estimated legacy data as if the legacy data is the truth. The impact of this is that MREEIO models can often give the impression of a detailed and accurate model, with a flurry of hidden assumptions and questionable numbers running in the back-end.
+
+This leaves us in a bit of a predicament. We can choose between (i) a model which assumes all countries are the same, but we know the limitations, assumptions, and what has gone into the model or (ii) a model which allows for regional heterogeneity but often relies heavily on estimated data which impose their own (often hidden) assumptions. Personally, I would favour the first option. A model should aim to provide a "good" guess given a series of clearly defined conditions. To maintain integrity and promote high data quality, we should aim to be transparent with the assumptions that we make, understand our source data, and be upfront about data availability; models should be used as a tool to help make informed guesses, not to dazzle, impress, and give a false sense of security. The carbon accounting space is currently leaning towards the second option of MREEIOs as the perceived increased detail that these models provide is appealing to firms. An increase in the number of available regional or product specific emission factors are often erroneously associated with more accurate and tailored footprints.
+
+# Emission factor adjustments
+
+As we now know, the region that the spend-based emission factors is derived from is important.
+
+### Exchange Rate
+
+- Best is to do a conversion of equivalent unit price for a given good
+- Second best would be an industry-level adjustment (potentially PPP adjusted)
+- Third is a general exchange rate adjustment; PPP adjustment will on average take us closer to the actual unit price adjustment than just using CPI. Note that PPP can be distortionary if the good or service being footprinted is unlikely to be a representative good/service within the classification.
+- Overall the purpose of exchange rate adjustment is to get the closest quantity unit equivalence across two regions/currencies.
+
+### Inflation
+
+- Best is commodity-specific inflation at current prices
+- Second best is industry-specific inflation at current prices
+- CPI inflation can be used, however, be aware of potential distortionary effects
+- Lack of adjustments leads to increasingly "incorrect" numbers over time
+
+![Inflation adjustment](ef_inflation_adjustment_volatile.png)
+![FX adjustment](ef_fx_adjustment.png)
+![Combined adjustment](ef_combined_adjustment.png)
+
+### Rebaselining
+
+Note that numbers are constantly changing and that rebaselining will likely be necessary as new data becomes available or emission factors are updated. Rebaselining is a normal activity and EEIO and MREEIO emission factors are likely to be volatile, in part due to the extrapolation as well as temporal and currency conversions which may impact the numbers over time. These adjustments, although on average representative for inter-regional and temporal changes, may not always be an accurate reflection of how a company's average costs have changed over time. This can result in either increases or decreases in emissions of a company, without them doing anything. This can be a difficult message to convey, especially when management are making large decisions to reduce their scope 3 based on outcomes from highly questionable numbers.
+
+---
+
+<small>Feature image source: [unsplash.com](https://unsplash.com/photos/macro-shot-of-gray-and-white-birds-IChRBaP9gTY) &nbsp;|&nbsp; Views are my own and do not reflect the views of my employer.</small>

@@ -1,8 +1,4 @@
 ---
-header:
-  caption: ""
-  image: ""
-title: Blog
-view: 2
-summary: "Short blog posts on topics I find interesting"
+title: "Blog"
+description: "Short posts on topics I find interesting — environmental economics, carbon accounting, urban policy, and occasional technical deep-dives."
 ---

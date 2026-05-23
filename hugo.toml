@@ -1,0 +1,135 @@
+baseURL = "https://fhbarton.com/"
+title = "Finn-Henrik Barton"
+paginate = 10
+theme = "PaperMod"
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+enableGitInfo = true
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[params]
+  env = "production"
+  title = "Finn-Henrik Barton"
+  description = "Economist interested in environment, urban, and spatial topics. Portfolio and blog."
+  author = "Finn-Henrik Barton"
+  DateFormat = "January 2, 2006"
+  defaultTheme = "auto"
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = false
+
+  [params.assets]
+    favicon = "/img/social.png"
+
+  [params.label]
+    text = "Finn-Henrik Barton"
+
+  [params.profileMode]
+    enabled = true
+    title = "Finn-Henrik Barton"
+    subtitle = "Economist · Policy & Data · Environment, Urban & Spatial"
+    imageUrl = "/img/avatar.png"
+    imageWidth = 180
+    imageHeight = 180
+    imageTitle = "Finn-Henrik Barton"
+
+    [[params.profileMode.buttons]]
+      name = "Blog"
+      url = "/blog"
+
+    [[params.profileMode.buttons]]
+      name = "Research"
+      url = "/research"
+
+    [[params.profileMode.buttons]]
+      name = "About"
+      url = "/about"
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/finn-henrik-barton-53193214b/"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/FinnHB"
+
+  [[params.socialIcons]]
+    name = "twitter"
+    url = "https://twitter.com/FhBarton"
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:finn_henrik@hotmail.com"
+
+  [[params.socialIcons]]
+    name = "cv"
+    url = "/files/cv.pdf"
+
+[params.homeInfoParams]
+  Title = "Finn-Henrik Barton"
+  Content = "Economist interested in environment, urban, and spatial topics."
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+    anchorLineNos = true
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    style = "github"
+  [markup.tableOfContents]
+    endLevel = 4
+    ordered = false
+    startLevel = 2
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[[menu.main]]
+  identifier = "blog"
+  name = "Blog"
+  url = "/blog/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "research"
+  name = "Research"
+  url = "/research/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 30
+
+[[menu.main]]
+  identifier = "cv"
+  name = "CV"
+  url = "/files/cv.pdf"
+  weight = 40
