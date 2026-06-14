@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__left">
+      <p class="site-footer__name">Finn-Henrik Barton</p>
+      <p class="site-footer__tag">Economist · environment, urban &amp; spatial</p>
+    </div>
+    <div class="site-footer__right">
+      {{ partial "social_icons.html" (dict) }}
+      <small class="site-footer__copy">© {{ now.Year }} · <a href="https://github.com/FinnHB" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/finn-henrik-barton-53193214b/" rel="noopener">LinkedIn</a></small>
+    </div>
+  </div>
+</footer>
+
+{{- partial "extend_footer.html" . }}

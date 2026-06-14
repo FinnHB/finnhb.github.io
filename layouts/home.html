@@ -1,0 +1,33 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero__inner">
+    <img class="hero__avatar"
+         src="/img/avatar.png"
+         alt="Portrait of Finn-Henrik Barton"
+         width="140" height="140" loading="eager">
+    <div class="hero__text">
+      <h1 class="hero__name">{{ .Title }}</h1>
+      {{- with .Params.tagline }}<p class="hero__tagline">{{ . }}</p>{{- end }}
+      {{- with .Params.bio }}<p class="hero__bio">{{ . }}</p>{{- end }}
+      {{ partial "social_icons.html" (dict) }}
+    </div>
+  </div>
+</section>
+
+<section class="feed" id="feed">
+  <header class="feed__header">
+    <div class="feed__heading">
+      <span class="eyebrow">Writing</span>
+      <h2 class="feed__title">Recent posts</h2>
+    </div>
+  </header>
+
+  <div class="feed__grid" data-grid>
+    {{- $posts := where site.RegularPages "Type" "blog" }}
+    {{- $posts = $posts.ByDate.Reverse }}
+    {{- range $posts }}
+      {{- partial "card.html" . }}
+    {{- end }}
+  </div>
+</section>
+{{ end }}

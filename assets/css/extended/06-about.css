@@ -1,0 +1,243 @@
+/* About hero */
+.about-hero {
+  display: flex;
+  gap: var(--space-6);
+  align-items: center;
+  padding: var(--space-6) 0;
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Higher specificity than PaperMod's .md-content img (0,1,1) to enforce circle + no margin */
+.about-hero .about-hero__avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.about-hero__bio {
+  font: 400 1.125rem / var(--lh-body) var(--font-body);
+  color: var(--color-text);
+  margin: 0;
+}
+
+@media (max-width: 560px) {
+  .about-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+}
+
+/* Experience timeline */
+.timeline {
+  position: relative;
+  padding-left: 6rem;
+  margin-bottom: var(--space-5);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5rem;
+  top: 0.5rem;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.timeline__entry {
+  position: relative;
+  padding-bottom: var(--space-6);
+}
+
+.timeline__entry:last-child {
+  padding-bottom: 0;
+}
+
+.timeline__entry::before {
+  content: '';
+  position: absolute;
+  left: -1.35rem;
+  top: 0.35rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 2px solid var(--color-text-subtle);
+}
+
+.timeline__entry.is-current::before {
+  background: var(--color-coral);
+  border-color: var(--color-coral);
+}
+
+.timeline__date {
+  position: absolute;
+  left: -6rem;
+  top: 0;
+  font: 500 var(--fs-small) / 1.6 var(--font-body);
+  color: var(--color-text-muted);
+  width: 4rem;
+  text-align: right;
+}
+
+.timeline__role {
+  font: 500 var(--fs-h3) / var(--lh-snug) var(--font-display);
+  margin: 0 0 var(--space-1) 0;
+  color: var(--color-text);
+}
+
+.timeline__company {
+  font: 400 var(--fs-small) / 1.5 var(--font-body);
+  color: var(--color-text-muted);
+}
+
+.timeline__period {
+  font: 400 var(--fs-meta) / 1.5 var(--font-body);
+  color: var(--color-text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-2);
+}
+
+.timeline__desc {
+  font: 400 var(--fs-body) / var(--lh-body) var(--font-body);
+  color: var(--color-text);
+  margin: var(--space-2) 0 0 0;
+}
+
+/* Contributions accordion */
+.contributions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+details.contribution {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg-elevated);
+  transition: border-color var(--transition-fast);
+}
+
+details.contribution[open] {
+  border-color: rgba(245, 122, 122, 0.35);
+}
+
+.contribution__summary {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  list-style: none;
+  flex-wrap: wrap;
+  user-select: none;
+}
+
+.contribution__summary::-webkit-details-marker { display: none; }
+
+.contribution__summary::after {
+  content: '+';
+  font: 500 1.1rem / 1 var(--font-body);
+  color: var(--color-coral);
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+details[open] > .contribution__summary::after {
+  content: '−';
+}
+
+.contribution__title {
+  font: 500 var(--fs-body) / var(--lh-snug) var(--font-display);
+  color: var(--color-text);
+}
+
+.contribution__meta {
+  font: 400 var(--fs-meta) / 1 var(--font-body);
+  color: var(--color-text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.contribution__body {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.contribution__body p {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-3) 0;
+}
+
+.contribution__links {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.contributions .contribution__links a,
+.contributions .contribution__links a:hover {
+  font: 500 var(--fs-small) / 1 var(--font-body);
+  color: var(--color-coral);
+  text-decoration: none;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--color-coral);
+  border-radius: var(--radius-pill);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.contributions .contribution__links a:hover {
+  background: var(--color-coral);
+  color: white;
+}
+
+/* GIS footnote */
+.contribution-gis {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+  margin-top: var(--space-3);
+}
+
+.contribution-gis a {
+  color: var(--color-text-muted);
+  text-decoration-color: rgba(107, 107, 104, 0.4);
+}
+
+.contribution-gis a:hover {
+  color: var(--color-coral);
+  text-decoration-color: var(--color-coral);
+}
+
+@media (max-width: 560px) {
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline::before {
+    left: 0;
+  }
+
+  .timeline__entry::before {
+    left: -1.35rem;
+  }
+
+  .timeline__date {
+    position: static;
+    width: auto;
+    text-align: left;
+    font-size: var(--fs-meta);
+    margin-bottom: var(--space-1);
+  }
+}

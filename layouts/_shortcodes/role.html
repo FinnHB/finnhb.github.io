@@ -1,0 +1,9 @@
+<div class="timeline__entry{{ if eq (.Get "current") "true" }} is-current{{ end }}">
+  <div class="timeline__date">{{ .Get "year" }}</div>
+  <div class="timeline__body">
+    <h3 class="timeline__role">{{ .Get "title" }}</h3>
+    <div class="timeline__company">{{ .Get "company" }} · {{ .Get "location" }}</div>
+    <div class="timeline__period">{{ .Get "period" }}</div>
+    {{ with .Inner }}<p class="timeline__desc">{{ . | markdownify }}</p>{{ end }}
+  </div>
+</div>

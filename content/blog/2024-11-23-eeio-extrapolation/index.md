@@ -23,11 +23,20 @@ This leaves us in a bit of a predicament. We can choose between (i) a model whic
 
 # Emission factor adjustments
 
-As we now know, the region that the spend-based emission factors is derived from is important.
+As we now know, the region that the spend-based emission factors is derived from is important. However, if you don't have spend-based emission factors for the region or time-frame, certain adjustments can be made to make them more representative. However, you should always be mindful of the quality of the original emission factors as well as differences in the regional and industry context.
 
-### Exchange Rate
+### Exchange Rate Adjustments
+As a general principle, we want to match the adjustments to the emission factor as closely as possible to the given commodity that we're trying to adjust for. 
 
-- Best is to do a conversion of equivalent unit price for a given good
+**Like-for-like price comparison** for a specific commodity would be the most accurate spend-based emission factor adjustment method. This would be where we know that the relative price of a specific commodity in two different locations. For example, if we know that the cost for some unknown quantity of bricks, x, is 20% higher in the US compared to the UK when adjusting for purchasing power, then we can adjust the UK emission factor by first applying the current exchange rate and then applying the purchasing power adjustment. As the emissions associated with bricks inherently come from the quantity of bricks, as opposed to the price of bricks, the purchasing power adjustment on top of the exchange rate adjustment results in a more accurate estimation of the underlying activity that results in the emissions. There is no set way of applying the purchasing power adjustment, however, on way may be to look at the prices relative to the median income. If we know that the unknown quantity, x, of bricks in the UK costs 1% of median income and in the US, the same unknown quantity costs 2% of median income, then we may determine that the purchasing power in the US is 50% lower than that of the UK. Consequently, after the exchange rate conversion, we would also want to halv the emission factor since the equivalent amount of USD to GBP can only buy half the amount of bricks.
+
+This naturally comes with a few caveats.
+- First, and arguably the biggest one, if we have relative price information to this level of detail, usually we would have enough price information to proxy a quantity of a specific commodity that has been bought and avoid the need for using a spend-based emission factor.
+- May involve "double-counting" where the exchange rate is heavily influenced by the price of a given commodity and the domestic pricing effects are asymmetrical. For example, the value of the Norwegian Kroner (NOK) is heavily influenced by oil prices, with the value of NOK often rising with oil prices. The value of the Philippine Peso (PHP) may be less influenced by oil price, but domestic prices are heavily influenced due to high reliance on oil. Consequently, if we convert a spend-based emission factor from tCO2e/PHP to tCO2e/NOK, the exchange rate already captures part of the price effects. 
+
+
+However, it is generally very unlikely that there would be sufficiently detailed relative price information. This would be where we would look at the price of a given commodity and adjust the emission factor in accordance with the PPP of that given commodity. For example, if an apple in the UK costs GBP 1 and costs 2
+
 - Second best would be an industry-level adjustment (potentially PPP adjusted)
 - Third is a general exchange rate adjustment; PPP adjustment will on average take us closer to the actual unit price adjustment than just using CPI. Note that PPP can be distortionary if the good or service being footprinted is unlikely to be a representative good/service within the classification.
 - Overall the purpose of exchange rate adjustment is to get the closest quantity unit equivalence across two regions/currencies.

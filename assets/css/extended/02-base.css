@@ -1,0 +1,56 @@
+/* Reset PaperMod's 768px main-width cap so our sections can claim the viewport */
+.main {
+  max-width: none;
+  padding: 0;
+  width: 100%;
+  min-height: calc(100vh - var(--nav-height) - 200px);
+}
+
+html {
+  background-color: var(--color-bg);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: var(--lh-body);
+  font-size: var(--fs-body);
+}
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-display);
+}
+
+h1, h2, h3, h4 {
+  scroll-margin-top: calc(var(--nav-height) + var(--space-3));
+}
+
+a {
+  color: var(--color-coral);
+  text-decoration: underline;
+  text-decoration-color: rgba(245, 122, 122, 0.85);
+  text-underline-offset: 2px;
+  transition: text-decoration-color var(--transition-fast);
+}
+
+a:hover {
+  text-decoration-color: var(--color-coral);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-5) 0;
+}
+
+pre, code {
+  font-family: var(--font-mono);
+}
+
+/* Single pages (about, blog posts) — constrain to readable width */
+.post-single {
+  max-width: var(--max-width-prose);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}

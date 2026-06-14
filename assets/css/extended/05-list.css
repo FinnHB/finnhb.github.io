@@ -1,0 +1,52 @@
+.list-header {
+  max-width: var(--max-width-grid);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-5);
+}
+
+.list-header h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  margin: 0 0 var(--space-2) 0;
+  color: var(--color-text);
+}
+
+.list-header p {
+  color: var(--color-text-muted);
+  font-size: var(--fs-body);
+  margin: 0;
+}
+
+/* Wrap the grid with max-width on list pages */
+.main > .feed__grid {
+  max-width: var(--max-width-grid);
+  margin: 0 auto;
+  padding: 0 var(--space-4) var(--space-7);
+}
+
+.page-footer {
+  max-width: var(--max-width-grid);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-4);
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination a {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.375rem 0.875rem;
+  transition: var(--transition-fast);
+}
+
+.pagination a:hover {
+  border-color: var(--color-coral);
+  color: var(--color-coral);
+}

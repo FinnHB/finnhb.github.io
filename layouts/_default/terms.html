@@ -1,0 +1,15 @@
+{{- define "main" }}
+<header class="list-header">
+  <h1>{{ .Title }}</h1>
+  <p>Browse writing by topic.</p>
+</header>
+
+<div class="terms">
+  {{- range .Data.Terms.ByCount }}
+  <a class="terms__item" href="{{ .Page.Permalink }}">
+    <span class="terms__name">{{ .Name | title }}</span>
+    <span class="terms__count">{{ .Count }}</span>
+  </a>
+  {{- end }}
+</div>
+{{- end }}

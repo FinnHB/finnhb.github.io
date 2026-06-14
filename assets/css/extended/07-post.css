@@ -1,0 +1,110 @@
+/* Post title and meta */
+.post-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-3);
+  color: var(--color-text);
+}
+
+.post-meta {
+  font-size: var(--fs-meta);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-5);
+}
+
+/* Prose content */
+.post-content {
+  max-width: var(--max-width-prose);
+  margin: 0 auto;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+.post-content h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+  color: var(--color-text);
+}
+
+.post-content h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+.post-content p,
+.post-content ul,
+.post-content ol {
+  margin-bottom: var(--space-3);
+}
+
+.post-content img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin: var(--space-4) 0;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--color-coral);
+  padding-left: var(--space-4);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin: var(--space-4) 0;
+}
+
+.post-content pre {
+  background: #1e2127;
+  color: #abb2bf;
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: var(--space-4) 0;
+}
+
+.post-content code:not(pre code) {
+  background: var(--color-bg-surface);
+  padding: 0.1rem 0.35rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9em;
+  color: var(--color-coral-deep);
+}
+
+/* Single post page layout */
+.post-single {
+  max-width: var(--max-width-prose);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+}
+
+/* PaperMod uses .post-header and .post-content classes */
+.post-header {
+  margin-bottom: var(--space-5);
+}
+
+.post-header .post-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+}
+
+/* Constrain prose on single pages */
+.main > article,
+.main > .post-content {
+  max-width: var(--max-width-prose);
+  padding: 0 var(--space-4);
+  margin: 0 auto;
+}

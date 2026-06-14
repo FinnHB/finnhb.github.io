@@ -1,0 +1,219 @@
+/* Hero */
+.hero {
+  background: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-8) var(--space-4) var(--space-7);
+  width: 100%;
+}
+
+.hero__inner {
+  display: flex;
+  gap: var(--space-6);
+  align-items: center;
+  max-width: var(--max-width-grid);
+  margin: 0 auto;
+}
+
+.hero__avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.hero__name {
+  font: 500 var(--fs-display) / var(--lh-tight) var(--font-display);
+  margin: 0 0 var(--space-2) 0;
+  color: var(--color-text);
+}
+
+.hero__tagline {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 var(--space-2) 0;
+}
+
+.hero__bio {
+  font: 400 1.0625rem / var(--lh-body) var(--font-body);
+  color: var(--color-text);
+  max-width: 56ch;
+  margin: 0 0 var(--space-3) 0;
+}
+
+/* PaperMod social icons reuse */
+.hero .social-icons {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.hero .social-icons a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+
+.hero .social-icons a:hover {
+  color: var(--color-coral);
+}
+
+.hero .social-icons svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Feed */
+.feed {
+  max-width: var(--max-width-feed);
+  padding: 0 var(--space-4) var(--space-7);
+  margin: 0 auto;
+}
+
+.feed__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.eyebrow {
+  display: block;
+  font: 500 var(--fs-meta) / 1 var(--font-body);
+  color: var(--color-coral);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-caps);
+  margin-bottom: var(--space-2);
+}
+
+.feed__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--color-text);
+}
+
+/* Card grid */
+.feed__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6) var(--space-5);
+}
+
+@media (max-width: 900px) {
+  .feed__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .feed__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.card {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.card__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.card__body {
+  padding: var(--space-5);
+}
+
+.card__chip {
+  display: inline-block;
+  background: var(--color-bg-surface);
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-pill);
+  font: 500 var(--fs-meta) / 1 var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  border: 1px solid transparent;
+  transition: var(--transition-fast);
+  margin-bottom: var(--space-2);
+}
+
+.card__chip:hover {
+  border-color: var(--color-coral);
+  color: var(--color-coral);
+}
+
+.card__title {
+  font: 500 1.375rem / var(--lh-snug) var(--font-display);
+  margin: var(--space-2) 0;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+}
+
+.card:hover .card__title {
+  color: var(--color-coral-deep);
+}
+
+.card__summary {
+  color: var(--color-text-muted);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  margin: var(--space-2) 0 var(--space-4) 0;
+  display: block;
+}
+
+.card__date {
+  display: block;
+  font-size: var(--fs-meta);
+  color: var(--color-text-subtle);
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  .hero__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Featured first card spans two columns (desktop only) */
+@media (min-width: 901px) {
+  .feed__grid .card:first-child {
+    grid-column: span 2;
+  }
+  .feed__grid .card:first-child .card__media img {
+    aspect-ratio: 16 / 7;
+  }
+  .feed__grid .card:first-child .card__title {
+    font-size: 1.625rem;
+  }
+}

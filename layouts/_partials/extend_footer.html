@@ -1,0 +1,25 @@
+<script>
+(function(){
+  // Topic chip click → navigate to /categories/{slug}/
+  const grid = document.querySelector('[data-grid]');
+  if (grid) {
+    grid.querySelectorAll('[data-topic-link]').forEach(chip => {
+      chip.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.href = '/categories/' + chip.dataset.topicLink + '/';
+      });
+    });
+  }
+
+  // Mobile nav toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const header = document.getElementById('site-header');
+  if (navToggle && header) {
+    navToggle.addEventListener('click', () => {
+      const open = header.toggleAttribute('data-nav-open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+  }
+})();
+</script>

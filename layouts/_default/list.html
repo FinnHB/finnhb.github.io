@@ -1,0 +1,29 @@
+{{- define "main" }}
+{{- if not .IsHome }}
+<header class="list-header">
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}<p>{{ . | markdownify }}</p>{{- end }}
+</header>
+{{- end }}
+
+<div class="feed__grid">
+  {{- range (.Paginate .RegularPages).Pages }}
+    {{- partial "card.html" . }}
+  {{- end }}
+</div>
+
+{{- with (.Paginate .RegularPages) }}
+{{- if gt .TotalPages 1 }}
+<footer class="page-footer">
+  <nav class="pagination">
+    {{- if .HasPrev }}
+    <a class="prev" href="{{ .Prev.URL | absURL }}">« Newer</a>
+    {{- end }}
+    {{- if .HasNext }}
+    <a class="next" href="{{ .Next.URL | absURL }}">Older »</a>
+    {{- end }}
+  </nav>
+</footer>
+{{- end }}
+{{- end }}
+{{- end }}

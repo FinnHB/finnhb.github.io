@@ -1,0 +1,49 @@
+.site-footer {
+  margin-top: var(--space-8);
+  padding: var(--space-6) var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-surface);          /* cream, bookends the hero banner */
+}
+
+.site-footer__inner {
+  max-width: var(--max-width-grid);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.site-footer__name {
+  font: 500 var(--fs-small) / 1.4 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-caps);
+  margin: 0 0 var(--space-1) 0;
+}
+
+.site-footer__tag {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.site-footer__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.site-footer__right .social-icons { display: flex; gap: var(--space-3); }
+.site-footer__right .social-icons a { color: var(--color-text-muted); transition: color var(--transition-fast); }
+.site-footer__right .social-icons a:hover { color: var(--color-coral); }
+
+.site-footer__copy { font-size: var(--fs-meta); color: var(--color-text-subtle); }
+.site-footer__copy a { color: inherit; text-decoration: underline; }
+.site-footer__copy a:hover { color: var(--color-coral); }
+
+@media (max-width: 560px) {
+  .site-footer__inner { flex-direction: column; }
+  .site-footer__right { align-items: flex-start; }
+}

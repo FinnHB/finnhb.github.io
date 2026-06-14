@@ -1,0 +1,31 @@
+{{- $lang := "" }}
+{{- range .Params.tags }}
+  {{- $l := lower . }}
+  {{- if in (slice "r" "python" "julia") $l }}{{- $lang = $l }}{{- end }}
+{{- end }}
+{{- $topic := "" }}
+{{- with .Params.categories }}{{- $topic = index . 0 }}{{- end }}
+{{- $topicSlug := $topic | urlize }}
+{{- $imgPath := "" }}
+{{- with .Resources.GetMatch "featured.*" }}
+  {{- $img := .Fill "560x420 q85 Center" }}
+  {{- $imgPath = $img.RelPermalink }}
+{{- end }}
+
+<article class="card" data-lang="{{ $lang }}" data-topic="{{ $topicSlug }}">
+  <a class="card__link" href="{{ .Permalink }}" aria-label="{{ .Title }}">
+    {{- if $imgPath }}
+    <div class="card__media">
+      <img src="{{ $imgPath }}" alt="" loading="lazy" width="560" height="420">
+    </div>
+    {{- end }}
+    <div class="card__body">
+      {{- if $topic }}
+      <span class="card__chip" data-topic-link="{{ $topicSlug }}">{{ $topic | title }}</span>
+      {{- end }}
+      <h3 class="card__title">{{ .Title }}</h3>
+      <p class="card__summary">{{ .Params.subtitle | default .Summary | plainify | truncate 130 }}</p>
+      <time class="card__date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+    </div>
+  </a>
+</article>
