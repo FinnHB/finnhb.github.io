@@ -1,6 +1,7 @@
 ---
 title: "A deeper dive into adjustments of spend-based emission factors"
 date: 2024-11-23
+draft: true
 slug: spend-ef-extrap
 subtitle: "Regional and temporal considerations for spend-based emission factors"
 summary: "With increasing requirements for scope 3 disclosure, spend-based emission factors are in high demand. However, as these emission factors are tied to economic output, it's important to understand the temporal and regional assumptions of these models to ensure that the emission factors are applied as appropriately as possible."
