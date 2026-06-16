@@ -20,11 +20,11 @@
 }
 
 .site-wordmark {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-caps);
-  font-weight: 500;
-  font-size: 0.875rem;
+  font-weight: 600;
+  font-size: 0.8125rem;
   color: var(--color-text);
   text-decoration: none;
   flex-shrink: 0;

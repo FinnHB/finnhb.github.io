@@ -4,6 +4,7 @@ layout: "single"
 url: "/about"
 summary: "About Finn-Henrik Barton"
 showToc: false
+hideMeta: true
 ---
 
 <div class="about-hero">
