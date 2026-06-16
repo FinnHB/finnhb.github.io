@@ -1,71 +1,66 @@
 ---
 title: "Emission Zones in London"
-author: "Finn-Henrik Barton"
-date: '2021-06-25'
+date: 2021-06-25
+slug: emission-zones-in-london
+subtitle: "The impact of zoning policy on NO₂ levels in Greater London."
+summary: "This post explores the importance of accounting for spatial spillovers when assessing policy efficacy. A short case-study on the impact of NO₂ emissions in London before and after the implementation of the Ultra Low Emission Zone is considered."
+tags: ["R", "environment", "policy", "featured"]
+categories: ["environment", "policy"]
+cover:
+  image: featured.jpg
+  hiddenInList: true
+math: true
 output:
   html_document:
-    toc: true
-  pdf_document:
-    keep_tex: true
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: yes
-slug: emission-zones-in-london
-subtitle: The impact of zoning policy on NO$_2$ levels in Greater London
-summary: This post explores the importance of accounting for spatial spillovers when assessing policy efficacy. A short case-study on the impact of NO$_2$ emissions in London before and after the implementation of the Ultra Low Emission Zone is considered.
-tags:
-- featured
-- featured R
-categories:
-- Environment
-- Policy
+    toc: false
 ---
 
 ## Introduction
-This blog post aims to explore the impact of the Ultra Low Emission Zone (ULEZ) on air pollution in London. Official reports on the impact of the ULEZ only looked at the difference between emission in the affected area versus the outskirts of Greater London. Due to potential spatial spillovers from the policy, I looked at re-estimating the results by using a synthetic control group based on other metropolitan areas in the United Kingdom. The results indicate that emission reductions from the ULEZ are around 40%, or 9% higher than the official estimates made by the Greater London Authority.
 
+This blog post aims to explore the impact of the Ultra Low Emission Zone (ULEZ) on air pollution in London. Official reports on the impact of the ULEZ only looked at the difference between emissions in the affected area versus the outskirts of Greater London. Due to potential spatial spillovers from the policy, I looked at re-estimating the results by using a synthetic control group based on other metropolitan areas in the United Kingdom. The results indicate that emission reductions from the ULEZ are around 40%, or 9% higher than the official estimates made by the Greater London Authority.
 
 ## Background
+
 In 2017 it was estimated that air pollution in London was costing the healthcare system upwards of £3.7 billion per year and resulting in 9,400 premature deaths ([London Councils, 2017](https://www.londoncouncils.gov.uk/node/33224)). Air pollution has also been found to significantly increase crime, and impair cognition ([Bondy, Roth, and Sage, 2012](https://www.journals.uchicago.edu/doi/full/10.1086/707127); [Fonken et al., 2011](https://www.nature.com/articles/mp201176)). In addition to the widespread health and societal issues, reductions in emissions from road transport will play a vital role in achieving net-zero by 2050 ([UNFCCC, 2018](https://unfccc.int/sites/default/files/resource/328_TransportDecarbonizationToolbox_TalanoaDialog.pdf)).
 
-NO$_2$ has been a particularly large problem in the United Kingdom, with many urban areas failing to meet the 2010 target of 40$\frac{\mu g}{m^3}$ per year.
+NO₂ has been a particularly large problem in the United Kingdom, with many urban areas failing to meet the 2010 target of 40 $\frac{\mu g}{m^3}$ per year.
 
-![](no2AverageUK.png){width=80%}
+![](no2AverageUK.png)
 
-As of July 2020, NO$_2$ levels were still above the target emissions set by the European Union for 2010. It wasn't until 2019 that the area of London which is now covered by the ULEZ was able to bring the number of annual NO$_2$ episodes in line with the 2010 targets. According to the [European Commission](https://ec.europa.eu/environment/air/quality/standards.htm), a NO$_2$ episode is classified as a 24 hour period where the average air pollution levels are above 50$\frac{\mu g}{m^3}$.
+As of July 2020, NO₂ levels were still above the target emissions set by the European Union for 2010. It wasn't until 2019 that the area of London which is now covered by the ULEZ was able to bring the number of annual NO₂ episodes in line with the 2010 targets. According to the [European Commission](https://ec.europa.eu/environment/air/quality/standards.htm), a NO₂ episode is classified as a 24 hour period where the average air pollution levels are above 50 $\frac{\mu g}{m^3}$.
 
-![](NO2Episodes.png){width=80%} 
+![](NO2Episodes.png)
 
-In an attempt to combat the rising air pollution, a Toxicity-Charge (T-Charge) was imposed in Central London in 2017. The policy applied a £10 charge to any vehicle which was registered before 2006 which travelled through the London congestion zone. Two months later, on the 1st of January, 2018, the transition towards an Ultra Low Emission Zone (ULEZ) started. From the start of the transition period, all new taxis and private hire vehicles should be zero emission capable. On the 8th of April, 2019, the ULEZ replaced the T-Charge, imposing a £12.50 charge on most existing vehicles, and £100 on heavy vehicles which travelled through the ULEZ. As of the 25th of October 2021, there will be a new Ultra Low Emission Zone Expansion (ULEZE), which will extend to London's North and South circular roads.
+In an attempt to combat the rising air pollution, a Toxicity-Charge (T-Charge) was imposed in Central London in 2017. The policy applied a £10 charge to any vehicle which was registered before 2006 which travelled through the London congestion zone. Two months later, on the 1st of January, 2018, the transition towards an Ultra Low Emission Zone (ULEZ) started. From the start of the transition period, all new taxis and private hire vehicles should be zero emission capable. On the 8th of April, 2019, the ULEZ replaced the T-Charge, imposing a £12.50 charge on most existing vehicles, and £100 on heavy vehicles which travelled through the ULEZ. As of the 25th of October 2021, there was a new Ultra Low Emission Zone Expansion (ULEZE), which extended to London's North and South circular roads.
 
 ![](LondonSites.jpg)
 
 ## How do we calculate the impact?
-One of the main difficulties when assessing the efficacy of emission zoning policy is the ability to find a suitable control group. Due to spatial spillovers, regions within close proximity to where the policy was enacted are often indirectly impacted by the policy. Consequently, comparing the changes in emissions between an effected area compared to surrounding areas will likely lead to biased estimates.
 
-Another way to think of these spillovers is to consider what happens when a rock(policy) is thrown in a lake. When the rock hits the water it creates a splash(treatment effect) and ripples(spillovers). The further we move away from where the rock landed, the smaller the ripples will become. Consequently, if we are interested in measuring the height of the splash relative to the normal level of the lake, we want to compare the size of the splash to another area far away from where the rock landed. By moving further away from the impact location, it is less likely that our results will be heavily skewed by taking a measurement at the trough of peak of the ripples, leading to biased results. However, if we move too far away, for example to another lake, then the results may no longer be comparable.
+One of the main difficulties when assessing the efficacy of emission zoning policy is the ability to find a suitable control group. Due to spatial spillovers, regions within close proximity to where the policy was enacted are often indirectly impacted by the policy. Consequently, comparing the changes in emissions between an affected area compared to surrounding areas will likely lead to biased estimates.
+
+Another way to think of these spillovers is to consider what happens when a rock (policy) is thrown in a lake. When the rock hits the water it creates a splash (treatment effect) and ripples (spillovers). The further we move away from where the rock landed, the smaller the ripples will become. Consequently, if we are interested in measuring the height of the splash relative to the normal level of the lake, we want to compare the size of the splash to another area far away from where the rock landed. By moving further away from the impact location, it is less likely that our results will be heavily skewed by taking a measurement at the trough or peak of the ripples, leading to biased results. However, if we move too far away, for example to another lake, then the results may no longer be comparable.
 
 What this means for assessing the policy efficacy is that we would want to find a control group which is highly unlikely to be affected by the policy, but hopefully still follow the same path as the affected area if the policy was not put in place. A common way for checking whether our control group is likely to follow the same path as our treatment in the absence of the policy, is by checking whether they had parallel trends prior to the policy intervention. Looking at the change in the difference between these two groups before and after the policy implementation, we can get an indication of the average treatment effect.
 
-
 ## Impact of the zoning policies
-In order to assess the change in air pollution, daily air pollution data from 150 Automatic Urban and Rural Network (AURN) sites all over the UK were analysed. Air pollution values were then deseasonalised and aggregated at a monthly rate. The data provides reasonable estimates of air pollution for 28 metropolitan areas. Taking a weighted average of other metropolitan areas in the United Kingdom, we can create a "synthetic" control group which satisfy the parallel trend assumption. In an effort to minimise the spatial spillovers, Greater London and neighbouring counties were excluded. Furthermore, any metropolitan areas which implemented policies to reduce air pollution between 2010 and July 2020 were also excluded as potential control groups. Although we can never be certain that there are no spillovers, by only selecting metropolitan areas which are outside of a reasonable commuting time to the ULEZ, the spillovers are hopefully minimised.
 
-the Greater London Authority released two reports [[2019](https://www.london.gov.uk/sites/default/files/ulez_six_month_evaluation_report_final_oct.pdf), [2020](https://www.london.gov.uk/sites/default/files/ulez_ten_month_evaluation_report_23_april_2020.pdf)] summarising the impact of the ULEZ on air pollution, and concluded that the zoning policy reduced roadside NO$_2$ by 31% and 37% respectively in the two reports. The reports measured changes in roadside levels between ULEZ monitoring stations and monitoring stations located at the periphery of Greater London. Comparing the results from the latest report to the results from the synthetic control, it would indicate that after accounting for spatial spillovers the roadside NO$_2$ reductions were 40.5%, or 9% higher than the official report as of January 2020.
+In order to assess the change in air pollution, daily air pollution data from 150 Automatic Urban and Rural Network (AURN) sites all over the UK were analysed. Air pollution values were then deseasonalised and aggregated at a monthly rate. The data provides reasonable estimates of air pollution for 28 metropolitan areas. Taking a weighted average of other metropolitan areas in the United Kingdom, we can create a "synthetic" control group which satisfies the parallel trend assumption. In an effort to minimise the spatial spillovers, Greater London and neighbouring counties were excluded. Furthermore, any metropolitan areas which implemented policies to reduce air pollution between 2010 and July 2020 were also excluded as potential control groups. Although we can never be certain that there are no spillovers, by only selecting metropolitan areas which are outside of a reasonable commuting time to the ULEZ, the spillovers are hopefully minimised.
+
+The Greater London Authority released two reports [[2019](https://www.london.gov.uk/sites/default/files/ulez_six_month_evaluation_report_final_oct.pdf), [2020](https://www.london.gov.uk/sites/default/files/ulez_ten_month_evaluation_report_23_april_2020.pdf)] summarising the impact of the ULEZ on air pollution, and concluded that the zoning policy reduced roadside NO₂ by 31% and 37% respectively in the two reports. The reports measured changes in roadside levels between ULEZ monitoring stations and monitoring stations located at the periphery of Greater London. Comparing the results from the latest report to the results from the synthetic control, it would indicate that after accounting for spatial spillovers the roadside NO₂ reductions were 40.5%, or 9% higher than the official report as of January 2020.
 
 ![](NO2_DiD.png)
 
 The sharp fall seen in the control group in 2019 can be observed in almost all metropolitan areas. This drop was likely due to the unveil of the [Clean Air Strategy](https://www.gov.uk/government/publications/clean-air-strategy-2019/clean-air-strategy-2019-executive-summary) which laid out a plan for reducing air pollution in the UK by 2020 and 2030.
 
-
 ## Concluding remarks
+
 The purpose of this blog post was to explore the use of synthetic controls in a spatial setting, looking at a case-study of the emission zoning policies in London. After accounting for spatial spillovers, it is likely that the Ultra Low Emission Zone reduced emissions in Central London by up to 40.5%, which is 9% greater than the official estimates by the Mayor of London.
 
-This being said, the analysis is far from perfect. Firstly, in the data there are only 150 monitoring stations, this means that the number of monitoring stations per metropolitan area is very low. Consequently, the air pollution data may not accurately represent all metropolitan areas. Secondly, caution should be exercised when interpreting these results as causal. The parallel trend assumption did not hold for any other air pollutants than NO$_2$. One explanation could be that using other metropolitan areas in the UK as a control group may not be a good representation of London, as London is often viewed as its own microcosm within the UK.
+This being said, the analysis is far from perfect. Firstly, in the data there are only 150 monitoring stations, this means that the number of monitoring stations per metropolitan area is very low. Consequently, the air pollution data may not accurately represent all metropolitan areas. Secondly, caution should be exercised when interpreting these results as causal. The parallel trend assumption did not hold for any other air pollutants than NO₂. One explanation could be that using other metropolitan areas in the UK as a control group may not be a good representation of London, as London is often viewed as its own microcosm within the UK.
 
-To conclude, I would say that the results do indicate that that the ULEZ was effective in reducing NO$_2$ concentrations in Central London. Furthermore, the results imply that the effect may be greater than official estimates due to spatial spillovers. However, a further exploration of this topic with more accurate data would be needed to draw any definite conclusions. With the expansion of the ULEZ in October 2021, we will hopefully see further improvements in London's air quality. Luckily, it does seem like we are moving towards greener and cleaner urban spaces, and definitely refreshing to hear that we may be doing better than we thought.
+To conclude, I would say that the results do indicate that the ULEZ was effective in reducing NO₂ concentrations in Central London. Furthermore, the results imply that the effect may be greater than official estimates due to spatial spillovers. However, a further exploration of this topic with more accurate data would be needed to draw any definite conclusions. With the expansion of the ULEZ in October 2021, we have hopefully seen further improvements in London's air quality. Luckily, it does seem like we are moving towards greener and cleaner urban spaces, and definitely refreshing to hear that we may be doing better than we thought.
 
+---
 
-
- <font size="1"> <p>Feature image source: <a href="https://www.london.gov.uk/what-we-do/environment/pollution-and-air-quality/mayors-ultra-low-emission-zone-london">www.london.gov.uk</a></p></font> 
+<small>Feature image source: [london.gov.uk](https://www.london.gov.uk/what-we-do/environment/pollution-and-air-quality/mayors-ultra-low-emission-zone-london) &nbsp;|&nbsp; Views are my own and do not reflect the views of my employer.</small>
