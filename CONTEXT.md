@@ -1,6 +1,6 @@
 # Context
 
-Personal portfolio and blog at fhbarton.com — built with Hugo + PaperMod, plain-Markdown blog posts. Acts as a digital CV without being formal: it should help people researching Finn-Henrik confirm they have the right person, host weekend writing, and build digital presence for future ventures.
+Personal portfolio and blog at finnhb.github.io — built with Hugo + PaperMod, plain-Markdown blog posts, deployed via GitHub Pages (GitHub Actions). Acts as a digital CV without being formal: it should help people researching Finn-Henrik confirm they have the right person, host weekend writing, and build digital presence for future ventures.
 
 ## Glossary
 
